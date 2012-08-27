@@ -20,6 +20,7 @@ public class AreaBeginninghospital extends Area
 		}
 		
 		tiles[5][9] = new TilePortal(Area.testbox, 1, 1);
+		tiles[6][9] = new TilePortal(Area.testbox, 1, 1);
 	}
 
 }
