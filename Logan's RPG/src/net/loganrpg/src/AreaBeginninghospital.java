@@ -6,7 +6,6 @@ public class AreaBeginninghospital extends Area
 	public AreaBeginninghospital(Session s, int width, int height)
 	{
 		super(s, width, height);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
