@@ -22,7 +22,8 @@ public class Player {
 	/**
 	 * Spells the player currently has
 	 */
-	public Spell spell1 = new SpellFirestrike(parent, this, getDeltaX(), getDeltaY(), getDirection());
+//	public Spell spell1 = new SpellFirestrike(parent, this, getDeltaX(), getDeltaY(), getDirection());
+	public Spell spell1;
 	
 	/**
 	 * Flip textures or not?
