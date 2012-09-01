@@ -2,7 +2,7 @@ package net.loganrpg.src;
 
 import java.util.ArrayList;
 
-public abstract class Area
+public class Area
 {
 
 	/**
