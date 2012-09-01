@@ -99,7 +99,6 @@ public class CSVLoader
 					if(line.startsWith("<NPC>"))
 					{
 						created.putNPC(Integer.parseInt(line.split(",")[1]), Integer.parseInt(line.split(",")[2]), NPC.getFromID(Integer.parseInt(line.split(",")[3])).setDirects(line.split(",")[4]));
-						System.out.println("NPC ADDED :D");
 					}
 				}
 				
