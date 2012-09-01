@@ -45,7 +45,7 @@ public class CSVLoader
 							
 							if(line.split(",")[c].toCharArray().length == 1)
 							{
-								created.tiles[l][c] = Tile.grass;
+								created.tiles[c][l] = Tile.grass;
 							}
 							else
 							{
@@ -70,21 +70,36 @@ public class CSVLoader
 							
 							int targetid = Integer.parseInt(line.split(",")[c].split(":")[2]);
 							int portalstyle = Integer.parseInt(line.split(",")[c].split(":")[1]);
-							int targetx = Integer.parseInt(line.split(",")[c].split(":")[3].split("^")[0]);
-							int targety = Integer.parseInt(line.split(",")[c].split(":")[3].split("^")[1]);
+							int targetx = Integer.parseInt(line.split(",")[c].split(":")[3]);
+							int targety = Integer.parseInt(line.split(",")[c].split(":")[4]);
 							
 							switch(portalstyle)
 							{
 							case 1:
-								created.tiles[l][c] = new TilePortal(targetid, targetx, targety);
+								created.tiles[c][l] = new TilePortal(targetid, targetx, targety);
 								break;
 							}
 							
 							break;
+							
+						case 'T':
+							
+							created.tiles[c][l] = Tile.tiledfloor;
+							break;
+							
 						}
 						
 					}
 					
+				}
+				
+				String line;
+				while((line = reader.readLine()) != null)
+				{
+					if(line.split(",")[0] == "<NPC>")
+					{
+						created.putNPC(Integer.parseInt(line.split(",")[1]), Integer.parseInt(line.split(",")[2]), NPC.getFromID(Integer.parseInt(line.split(",")[3])).setDirects(line.split(",")[4]));
+					}
 				}
 				
 			}
