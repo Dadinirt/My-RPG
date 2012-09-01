@@ -96,9 +96,10 @@ public class CSVLoader
 				String line;
 				while((line = reader.readLine()) != null)
 				{
-					if(line.split(",")[0] == "<NPC>")
+					if(line.startsWith("<NPC>"))
 					{
 						created.putNPC(Integer.parseInt(line.split(",")[1]), Integer.parseInt(line.split(",")[2]), NPC.getFromID(Integer.parseInt(line.split(",")[3])).setDirects(line.split(",")[4]));
+						System.out.println("NPC ADDED :D");
 					}
 				}
 				
@@ -149,8 +150,11 @@ public class CSVLoader
 			spell3 = Integer.parseInt(reader.readLine().split(",")[1]);
 			spell4 = Integer.parseInt(reader.readLine().split(",")[1]);
 			awareness = Integer.parseInt(reader.readLine().split(",")[1]);
+
+			NPC created = new NPC(Core.currentsession, name).setID(id).setType(type).setHealth(health).setTeam(team).setSkill(skill).setAwareness(awareness);
 			
-			return new NPC(Core.currentsession, name).setID(id).setType(type).setHealth(health).setTeam(team).setSkill(skill).setAwareness(awareness);
+			NPC.npcs.add(created);
+			return created;
 		}
 		
 		return null;

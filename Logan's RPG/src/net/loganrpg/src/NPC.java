@@ -1,5 +1,8 @@
 package net.loganrpg.src;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.newdawn.slick.opengl.Texture;
@@ -17,7 +20,7 @@ public class NPC
 	 */
 	public static final NPC testnpc;
 	public static final NPC testenemy;
-	public static final NPC beginningnurse;
+	public static NPC beginningnurse;
 	
 	/**
 	 * ID of the NPC
@@ -976,6 +979,18 @@ public class NPC
 		testnpc = new NPCtestnpc(parent, "TEST").setHealth(50).setTeam(2).setSkill(SkillLevel.NOVICE).setSpell(1, Spell.firestrike);
 		testenemy = new NPCtestnpc(parent, "ENEMY").setHealth(30).setTeam(1).setSkill(SkillLevel.NOVICE).setSpell(1, Spell.firestrike);
 		beginningnurse = new NPCBeginningNurse(parent);
+		try
+		{
+			beginningnurse = CSVLoader.loadNPCCSV(new File("res/csv/nurse.csv"));
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 }
