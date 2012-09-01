@@ -111,5 +111,49 @@ public class CSVLoader
 		
 		return null;
 	}
+	
+	public static NPC loadNPCCSV(File f) throws FileNotFoundException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new FileReader(f));
+		String typecheck = reader.readLine();
+		if(typecheck.startsWith("<NPC>"))
+		{
+			int id;
+			String name;
+			NPCType type = NPCType.DEFAULT_BOY;
+			int health;
+			int team;
+			SkillLevel skill = SkillLevel.NOVICE;
+			int spell1;
+			int spell2;
+			int spell3;
+			int spell4;
+			int awareness;
+			
+			id = Integer.parseInt(reader.readLine().split(",")[1]);
+			String inputtype = reader.readLine().split(",")[1];
+			if(inputtype == "DEFAULT_BOY")
+			{
+				type = NPCType.DEFAULT_BOY;
+			}
+			name = reader.readLine().split(",")[1];
+			health = Integer.parseInt(reader.readLine().split(",")[1]);
+			team = Integer.parseInt(reader.readLine().split(",")[1]);
+			String inputskill = reader.readLine().split(",")[1];
+			if(inputskill == "NOVICE")
+			{
+				skill = SkillLevel.NOVICE;
+			}
+			spell1 = Integer.parseInt(reader.readLine().split(",")[1]);
+			spell2 = Integer.parseInt(reader.readLine().split(",")[1]);
+			spell3 = Integer.parseInt(reader.readLine().split(",")[1]);
+			spell4 = Integer.parseInt(reader.readLine().split(",")[1]);
+			awareness = Integer.parseInt(reader.readLine().split(",")[1]);
+			
+			return new NPC(Core.currentsession, name).setID(id).setType(type).setHealth(health).setTeam(team).setSkill(skill).setAwareness(awareness);
+		}
+		
+		return null;
+	}
 
 }
