@@ -234,7 +234,20 @@ public class Area
 		NPCs.add(toput);
 		return this;
 	}
+	
+	/**
+	 * Gets an area from ID
+	 */
+	public static Area getFromID(int id)
+	{
+		return areas.get(id);
+	}
 
+	/**
+	 * ArrayList of areas, to get from ID
+	 */
+	public static ArrayList<Area> areas = new ArrayList<Area>();
+	
 	/**
 	 * List of all areas
 	 */
