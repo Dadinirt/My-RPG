@@ -32,6 +32,24 @@ public abstract class Area
 	 */
 	protected ArrayList<Spell> spells = new ArrayList<Spell>();
 	private ArrayList<Spell> rmvspells = new ArrayList<Spell>();
+	
+	/**
+	 * Constructor for a CSV loaded area
+	 */
+	public Area(int width, int height)
+	{
+		parent = Core.currentsession;
+		this.width = width;
+		this.height = height;
+		tiles = new Tile[width][height];
+		for (int x = 0; x < width; x++)
+		{
+			for (int y = 0; y < height; y++)
+			{
+				tiles[x][y] = Tile.def;
+			}
+		}
+	}
 
 	/**
 	 * Constructor for an area
@@ -58,7 +76,7 @@ public abstract class Area
 			}
 		}
 
-		buildArea();
+//		buildArea();
 	}
 	
 	/**
@@ -109,7 +127,7 @@ public abstract class Area
 	/**
 	 * Builds the area. Must be defined in the specific area class.
 	 */
-	protected abstract void buildArea();
+//	protected abstract void buildArea();
 	
 	/**
 	 * Checks which tiles are occupied and marks them as so
@@ -214,12 +232,10 @@ public abstract class Area
 	 * List of all areas
 	 */
 	public static final Area testbox;
-	public static final Area beginhospital;
 
 	static
 	{
 		testbox = new AreaTestbox(parent, 10, 10).putNPC(5, 5, NPC.testnpc.setDirect(Direction.DOWN)).putNPC(2, 2, NPC.testenemy);
-		beginhospital = new AreaBeginninghospital(parent, 10, 10).putNPC(5, 9, NPC.beginningnurse);
 	}
 
 }

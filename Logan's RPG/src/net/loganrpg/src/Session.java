@@ -55,7 +55,7 @@ public class Session {
 	public Session()
 	{
 		initializeFonts();
-		currentarea = Area.beginhospital;
+		currentarea = Area.testbox;
 		player = new Player(this, "ALEX", Gender.MALE);
 		player.setDeltas(5, 5);
 		new Message(this);
