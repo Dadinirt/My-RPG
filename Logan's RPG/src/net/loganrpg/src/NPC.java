@@ -925,6 +925,12 @@ public class NPC
 		return this;
 	}
 	
+	protected NPC setID(int id)
+	{
+		this.ID = id;
+		return this;
+	}
+	
 	protected NPC setAwareness(int a)
 	{
 		awareness = a;
