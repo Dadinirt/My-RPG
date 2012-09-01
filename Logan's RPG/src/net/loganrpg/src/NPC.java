@@ -1,9 +1,16 @@
 package net.loganrpg.src;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.opengl.Texture;
 
 public class NPC
 {
+	
+	/**
+	 * ArrayList of NPCs
+	 */
+	public static ArrayList<NPC> npcs = new ArrayList<NPC>();
 	
 	/**
 	 * List of all NPCs
@@ -11,6 +18,11 @@ public class NPC
 	public static final NPC testnpc;
 	public static final NPC testenemy;
 	public static final NPC beginningnurse;
+	
+	/**
+	 * ID of the NPC
+	 */
+	protected int ID;
 	
 	/**
 	 * Session NPC is part of
@@ -887,6 +899,26 @@ public class NPC
 		return this;
 	}
 	
+	protected NPC setDirects(String s)
+	{
+		switch(s.toCharArray()[0])
+		{
+		case 'U':
+			this.direction = Direction.UP;
+			break;
+		case 'D':
+			this.direction = Direction.DOWN;
+			break;
+		case 'L':
+			this.direction = Direction.LEFT;
+			break;
+		case 'R':
+			this.direction = Direction.RIGHT;
+			break;
+		}
+		return this;
+	}
+	
 	protected NPC setTeam(int t)
 	{
 		team = t;
@@ -914,6 +946,23 @@ public class NPC
 			break;
 		}
 		return this;
+	}
+	
+	/**
+	 * Gets an NPC by ID
+	 */
+	public static NPC getFromID(int id)
+	{
+		for(int i = 0; i < npcs.size(); i++)
+		{
+			if(npcs.get(i).ID == id)
+			{
+				return npcs.get(i);
+			}
+		}
+		
+		System.out.println("Invalid NPC ID!");
+		return null;
 	}
 	
 	static
