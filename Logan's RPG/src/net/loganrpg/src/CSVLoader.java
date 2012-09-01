@@ -89,7 +89,7 @@ public class CSVLoader
 				
 			}
 			
-			Area.areas.add(levelid, created);
+			Area.areas.add(created);
 			return created;
 			
 		}

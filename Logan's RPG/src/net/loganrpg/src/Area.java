@@ -1,5 +1,8 @@
 package net.loganrpg.src;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Area
@@ -9,11 +12,6 @@ public class Area
 	 * Array of tiles in the area
 	 */
 	protected Tile[][] tiles;
-	
-	/**
-	 * Reference to the parent session
-	 */
-	private static Session parent;
 	
 	/**
 	 * The width and height of the area
@@ -43,7 +41,6 @@ public class Area
 	 */
 	public Area(int id, int width, int height)
 	{
-		parent = Core.currentsession;
 		this.width = width;
 		this.height = height;
 		tiles = new Tile[width][height];
@@ -70,7 +67,6 @@ public class Area
 	public Area(Session s, int width, int height)
 	{
 		ID = -1;
-		parent = s;
 		this.width = width;
 		this.height = height;
 		tiles = new Tile[width][height];
@@ -240,7 +236,16 @@ public class Area
 	 */
 	public static Area getFromID(int id)
 	{
-		return areas.get(id);
+		for(int i = 0; i < areas.size(); i++)
+		{
+			if(areas.get(i).ID == id)
+			{
+				return areas.get(i);
+			}
+		}
+		
+		System.out.println("Invalid ID!");
+		return null;
 	}
 
 	/**
@@ -251,11 +256,26 @@ public class Area
 	/**
 	 * List of all areas
 	 */
-	public static final Area testbox;
+	public static Area testbox;
 
 	static
 	{
-		testbox = new AreaTestbox(parent, 10, 10).putNPC(5, 5, NPC.testnpc.setDirect(Direction.DOWN)).putNPC(2, 2, NPC.testenemy);
+//		testbox = new AreaTestbox(parent, 10, 10).putNPC(5, 5, NPC.testnpc.setDirect(Direction.DOWN)).putNPC(2, 2, NPC.testenemy);
+		try
+		{
+			testbox = CSVLoader.loadAreaCSV(new File("res/csv/RPGLevel test.csv"));
+		}
+		catch (FileNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
