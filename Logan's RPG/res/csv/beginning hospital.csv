@@ -1,0 +1,14 @@
+<AREA>,,,,,,,,,
+<LEVELWIDTH>10,<LEVELHEIGHT>10,<LEVELID>5,<VIEWDISTANCE>100,,,,,,
+<DRAW>,,,,,,,,,
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,t,t,t,t,t,t
+t,t,t,t,p:1:6:20:5,t,t,t,t,t
+<NPC>,4,9,3,UP,,,,,

@@ -56,7 +56,7 @@ public class Session {
 	{
 		initializeFonts();
 //		new Area(1, 1, 1);
-		currentarea = Area.getFromID(3);
+		currentarea = Area.getFromID(5);
 		player = new Player(this, "ALEX", Gender.MALE);
 		player.setDeltas(0, 0);
 		new Message(this);
