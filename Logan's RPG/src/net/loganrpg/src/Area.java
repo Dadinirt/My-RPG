@@ -258,6 +258,7 @@ public class Area
 	 * List of all areas
 	 */
 	public static Area testbox;
+	public static Area begininghospital;
 
 	static
 	{
@@ -265,6 +266,7 @@ public class Area
 		try
 		{
 			testbox = CSVLoader.loadAreaCSV(new File("res/csv/RPGLevel test.csv"));
+			begininghospital = CSVLoader.loadAreaCSV(new File("res/csv/beginning hospital.csv"));
 		}
 		catch (FileNotFoundException e)
 		{
