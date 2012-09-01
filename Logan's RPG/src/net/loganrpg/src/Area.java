@@ -22,6 +22,11 @@ public class Area
 	private final int height;
 	
 	/**
+	 * ID of the level, used when constructing CSV portals
+	 */
+	public final int ID;
+	
+	/**
 	 * Arraylist of all NPCs in the area
 	 */
 	protected ArrayList<NPC> NPCs = new ArrayList<NPC>();
@@ -36,7 +41,7 @@ public class Area
 	/**
 	 * Constructor for a CSV loaded area
 	 */
-	public Area(int width, int height)
+	public Area(int id, int width, int height)
 	{
 		parent = Core.currentsession;
 		this.width = width;
@@ -49,6 +54,7 @@ public class Area
 				tiles[x][y] = Tile.def;
 			}
 		}
+		this.ID = id;
 	}
 
 	/**
@@ -63,6 +69,7 @@ public class Area
 	 */
 	public Area(Session s, int width, int height)
 	{
+		ID = -1;
 		parent = s;
 		this.width = width;
 		this.height = height;
