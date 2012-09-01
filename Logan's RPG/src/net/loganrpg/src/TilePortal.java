@@ -3,14 +3,15 @@ package net.loganrpg.src;
 public class TilePortal extends Tile
 {
 	
+	private int dest;
 	private Area destination;
 	private int tx;
 	private int ty;
 
-	public TilePortal(Area dest, int x, int y)
+	public TilePortal(int dest, int x, int y)
 	{
 		super(Tex.portal);
-		destination = dest;
+		this.dest = dest;
 		tx = x;
 		ty = y;
 		isSpecial = true;
@@ -18,6 +19,7 @@ public class TilePortal extends Tile
 	
 	public void checkNotify()
 	{
+		destination = Area.getFromID(dest);
 		Session.changeArea(destination, tx, ty);
 	}
 
