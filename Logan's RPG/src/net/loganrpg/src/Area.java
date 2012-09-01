@@ -145,6 +145,7 @@ public class Area
 				tiles[x][y].setOccupied(false);
 			}
 		}
+//		tiles[Core.currentsession.player.getDeltaX()][Core.currentsession.player.getDeltaY()].setOccupied(true);
 		//Go through all NPCs and see what space they are on
 		for(int i = 0; i < NPCs.size(); i++)
 		{

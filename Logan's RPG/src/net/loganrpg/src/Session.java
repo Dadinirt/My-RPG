@@ -55,9 +55,10 @@ public class Session {
 	public Session()
 	{
 		initializeFonts();
-		currentarea = Area.testbox;
+//		new Area(1, 1, 1);
+		currentarea = Area.getFromID(3);
 		player = new Player(this, "ALEX", Gender.MALE);
-		player.setDeltas(5, 5);
+		player.setDeltas(0, 0);
 		new Message(this);
 	}
 	
@@ -327,7 +328,7 @@ public class Session {
 	public void checkOccupied()
 	{
 		currentarea.checkOccupied();
-		this.currentarea.setTileOccupied(player.getDeltaX(), player.getDeltaY(), true);
+//		Session.currentarea.setTileOccupied(player.getDeltaX(), player.getDeltaY(), true);
 	}
 	
 	/**
